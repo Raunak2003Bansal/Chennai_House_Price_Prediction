@@ -103,10 +103,8 @@ if st.button("Predict Price"):
     # Predict
     prediction = model.predict(new_df)
     price = np.exp(int(prediction[0]))
-
-
-if price >= 1_00_00_000:
-    st.success(f"💰 Estimated Price: ₹ {price / 1_00_00_000:.2f} Crore")
-else:
-    st.success(f"💰 Estimated Price: ₹ {price / 1_00_000:.2f} Lakh")
+    if price >= 1_00_00_000:
+        st.success(f"💰 Estimated Price: ₹ {price / 1_00_00_000:.2f} Crore")
+    else:
+        st.success(f"💰 Estimated Price: ₹ {price / 1_00_000:.2f} Lakh")
 
